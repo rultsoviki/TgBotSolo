@@ -9,11 +9,10 @@ public class HikariCpConfig {
     private static final String DRIVER_CLASS_NAME;
 
     static {
-        AppProperties appProperties = new AppProperties();
-        MAXIMUM_POOL_SIZE = Integer.parseInt(appProperties.get("hikari.maximumPoolSize"));
-        MINIMUM_IDLE = Integer.parseInt(appProperties.get("hikari.minimumIdle"));
-        CONNECTION_TIMEOUT = Long.parseLong(appProperties.get("hikari.connectionTimeout"));
-        DRIVER_CLASS_NAME = appProperties.get("connection.driver_class");
+        MAXIMUM_POOL_SIZE = Integer.parseInt(AppProperties.get("hikari.maximumPoolSize"));
+        MINIMUM_IDLE = Integer.parseInt(AppProperties.get("hikari.minimumIdle"));
+        CONNECTION_TIMEOUT = Long.parseLong(AppProperties.get("hikari.connectionTimeout"));
+        DRIVER_CLASS_NAME = AppProperties.get("connection.driver_class");
     }
 
     public static int getMaximumPoolSize() {

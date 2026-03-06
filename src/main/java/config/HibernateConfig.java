@@ -10,13 +10,11 @@ public class HibernateConfig {
     private static final String PROVIDER_CLASS;
 
     static {
-        AppProperties properties = new AppProperties();
-
-        DIALECT = properties.get("hibernate.dialect");
-        HBM2DDL_AUTO = properties.get("hibernate.hbm2ddl.auto");
-        SHOW_SQL = Boolean.parseBoolean(properties.get("hibernate.show_sql"));
-        FORMAT_SQL = Boolean.parseBoolean(properties.get("hibernate.format_sql"));
-        PROVIDER_CLASS = properties.get("hibernate.connection.provider_class");
+        DIALECT = AppProperties.get("hibernate.dialect");
+        HBM2DDL_AUTO = AppProperties.get("hibernate.hbm2ddl.auto");
+        SHOW_SQL = Boolean.parseBoolean(AppProperties.get("hibernate.show_sql"));
+        FORMAT_SQL = Boolean.parseBoolean(AppProperties.get("hibernate.format_sql"));
+        PROVIDER_CLASS = AppProperties.get("hibernate.connection.provider_class");
     }
 
     public static String getDialect() {

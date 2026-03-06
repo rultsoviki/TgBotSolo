@@ -1,8 +1,7 @@
 import config.HibernateFactory;
+import repository.UserDao;
 import domain.Users;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import java.time.LocalDateTime;
 
@@ -10,22 +9,18 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateFactory.getSessionFactory();
-        Users user = Users.builder()
-                .chatId(123456789L)
-                .username("john_doe")
-                .age(25)
-                .weight(75.5)
-                .height(180.0)
-                .goal("Набрать массу")
-                .createdAt(LocalDateTime.now())  // если нет @CreationTimestamp
+        Runtime.getRuntime().addShutdownHook(new Thread(sessionFactory::close));
+        var session = sessionFactory.openSession();
+        Users users = Users.builder()
+                .username("test")
+                .age(18)
+                .weight(100)
+                .height(200)
+                .goal("Хочу похудеть")
+                .createdAt(LocalDateTime.now())
                 .build();
-
-        try (Session session = sessionFactory.openSession()) {
-            Transaction tx = session.beginTransaction();
-            session.persist(user);
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        UserDao u = new UserDao();
+        u.save(session, users);
+        System.out.println(users);
     }
 }

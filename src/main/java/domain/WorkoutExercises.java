@@ -37,5 +37,6 @@ public class WorkoutExercises {
     @Column(nullable = false)
     private Double weight;
 
+    @Column(columnDefinition = "interval")
     private Duration duration;
 }

@@ -16,9 +16,11 @@ public class HibernateFactory {
 
     static {
         HikariDataSource hikariDataSource = new HikariDataSource();
+
         hikariDataSource.setJdbcUrl(DbConfig.getUrl());
         hikariDataSource.setUsername(DbConfig.getUsername());
         hikariDataSource.setPassword(DbConfig.getPassword());
+
         hikariDataSource.setMaximumPoolSize(HikariCpConfig.getMaximumPoolSize());
         hikariDataSource.setMinimumIdle(HikariCpConfig.getMinimumIdle());
         hikariDataSource.setIdleTimeout(HikariCpConfig.getConnectionTimeout());
@@ -30,6 +32,7 @@ public class HibernateFactory {
         configuration.getProperties().put("hibernate.hbm2ddl.auto", HibernateConfig.getHbm2ddlAuto());
         configuration.getProperties().put("hibernate.show_sql", HibernateConfig.isShowSql());
         configuration.getProperties().put("hibernate.format_sql", HibernateConfig.isFormatSql());
+
 
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties()).build();

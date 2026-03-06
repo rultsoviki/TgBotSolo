@@ -9,10 +9,9 @@ public class DbConfig {
     private static final String PASSWORD;
 
     static {
-        AppProperties properties = new AppProperties();
-        URL = properties.get("connection.url");
-        USERNAME = properties.get("connection.username");
-        PASSWORD = properties.get("connection.password");
+        URL = AppProperties.get("connection.url");
+        USERNAME = AppProperties.get("connection.username");
+        PASSWORD = AppProperties.get("connection.password");
     }
 
     public static String getUrl() {
