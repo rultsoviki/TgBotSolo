@@ -1,4 +1,7 @@
 package config;
 
-public class WorkoutsConfig {
+public record WorkoutsConfig(
+        String workoutUrl,
+        String workoutApiKey
+) {
 }

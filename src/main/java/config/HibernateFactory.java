@@ -42,7 +42,7 @@ public class HibernateFactory {
                     .addAnnotatedClass(Exercises.class)
                     .addAnnotatedClass(Workouts.class)
                     .addAnnotatedClass(WorkoutExercises.class)
-                    .addAnnotatedClass(Users.class)
+                    .addAnnotatedClass(User.class)
                     .addAnnotatedClass(FoodEntries.class)
                     .addAnnotatedClass(NutritionGoals.class)
                     .buildMetadata()

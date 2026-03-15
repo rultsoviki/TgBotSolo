@@ -4,6 +4,7 @@ import org.hibernate.Session;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public abstract class BaseRepository<T, ID> {
     private final Class<T> entityClass;
@@ -45,7 +46,7 @@ public abstract class BaseRepository<T, ID> {
         }
     }
 
-    public Optional<T> findById(Session session, Long id) {
+    public Optional<T> findById(Session session, ID id) {
         var entity = session.find(entityClass, id);
         return Optional.ofNullable(entity);
     }

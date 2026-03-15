@@ -1,4 +1,7 @@
 package config;
 
-public class FoodsConfig {
+public record FoodsConfig(
+        String foodsUrl,
+        String foodsApiKey
+) {
 }

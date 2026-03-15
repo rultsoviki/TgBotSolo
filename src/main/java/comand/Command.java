@@ -1,5 +1,5 @@
 package comand;
 
-public interface Comand {
-     void ();
+public interface Command {
+    String execute(Long id,String...param);
 }

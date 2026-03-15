@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.telegram.telegrambots.meta.api.objects.User;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 
@@ -25,7 +23,7 @@ public class NutritionGoals {
 
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
-    private Users user;
+    private User user;
 
 
     @Column(nullable = false)

@@ -1,4 +1,4 @@
-package comand;
+package registration;
 
 public enum RegistrationStatus {
     REGISTRATION_START,

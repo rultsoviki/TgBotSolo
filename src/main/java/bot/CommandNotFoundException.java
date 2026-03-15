@@ -1,7 +1,7 @@
 package bot;
 
 public class CommandNotFoundException extends RuntimeException {
-  public CommandNotFoundException(String message) {
-    super(message);
-  }
+    public CommandNotFoundException() {
+        super("Это не команда или такой команды не существует");
+    }
 }

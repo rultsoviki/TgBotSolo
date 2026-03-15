@@ -12,12 +12,12 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @ToString
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(name = "chat_id",unique = true)
     private Long chatId;
 
     @Column(nullable = false)

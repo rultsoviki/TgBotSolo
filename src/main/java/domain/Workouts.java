@@ -21,7 +21,7 @@ public class Workouts {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    private User user;
 
     @Column(name = "workout_date", nullable = false) // если колонка называется иначе
     private LocalDateTime workoutDate;

@@ -1,4 +1,4 @@
-package comand;
+package registration;
 
 import Service.UserService;
 import domain.User;

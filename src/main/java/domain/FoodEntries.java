@@ -1,5 +1,6 @@
 package domain;
 
+import domain.vo.Units;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class FoodEntries {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     @Column(nullable = false)
     private LocalDateTime entryDate;
@@ -38,17 +39,4 @@ public class FoodEntries {
 
     @Enumerated(EnumType.STRING)
     private Units units;
-
-
-    enum Units {
-        GRAM("г"),
-        MILLILITER("мл"),
-        PIECE("шт"),
-        ;
-        private String value;
-
-        Units(String value) {
-            this.value = value;
-        }
-    }
 }
